@@ -6,6 +6,8 @@
 require relative 'contact'
 require 'sinatra'
 
+## Temporary fake data so that we always find contact with id 1.
+Contact.create('Betty', 'Maker', 'betty@bitmakerlabs.com', 'Developer')
 
 # # Fake data
 # Contact.create('Mark', 'Zuckerberg', 'mark@facebook.com', 'CEO')
@@ -43,12 +45,19 @@ get "/" do
    # redirects you back to /contacts page
    redirect to ("/contacts")
  end
-
+ get '/contacts/:id' do
+   @contact = Contact.find(params[:id].to_i)
+   if @contact
+    erb :show_contact
+  else
+    raise Sinatra::NotFound
+  end
+end
 
 get "/contacts/:id/view" do
   @contact = Contact.find(params[:id].to_i)
   return erb(:show_contact)
-end
+  end
 
 
 get "/contacts/:id/edit" do
@@ -59,6 +68,8 @@ get "/contacts/:id/edit" do
     raise Sinatra::NotFound
   end
 end
+
+
 
 
 get "/contacts/:id/delete" do
