@@ -2,6 +2,16 @@
 
 <ul>
 <% Contact.all.each do |contact| %>
-  <li><%= contact.first_name %> <%= contact.last_name %></li>
+  <li><%= contact.first_name %> <%= contact.last_name %> <%=contact.email %> </li>
+    <p>
+      <a href="/contacts/<%= contact.id %>/view" class="view_new">View</a>
+        <span class="bar"> | </span>
+          <a href="/contacts/<%= contact.id %>/edit" class="view_new">Edit</a>
+        <span class="bar"> | </span>
+      <a href="/contacts/<%= contact.id %>/delete" class="view_new">Delete</a>
+    </p>
+  </li>
+     <% end %>
+    </p>
 <% end %>
-</ul>
+</ul
