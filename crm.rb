@@ -12,79 +12,66 @@ require 'sinatra'
 # Contact.create('Sergey', 'Brin', 'sergey@google.com', 'Co-Founder')
 # Contact.create('Steve', 'Jobs', 'steve@apple.com', 'Visionary')
 
-
-get '/' do
-  'Main Menu'
-end
-
-
-# Home Page---------
- get "/" do
-  erb :index
+get "/" do
+   @crm_app_name = "CRM Project"
+   return erb(:index)
  end
 
-
- # contacts Home Page----------
  get "/contacts" do
    @count = Contact.all.count
    #links to contacts.erb file
    return erb(:contacts)
  end
 
- # create a New Contact Page----------
-  get "/contacts/new" do
-    #links to new_contact.erb
-    return erb(:new_contact)
-  end
 
-
- # Creating a Contact Page-----------
-  post "/contacts" do
-    contact = Contact.create(
-      first_name: params[:first_name],
-      last_name:  params[:last_name],
-      email:      params[:email],
-      note:       params[:note]
-      last_name:  params[:last_name],
-      email:      params[:email],
-      note:       params[:note]
-    )
-   #creates new contact from user input
-   # Contact.create(params[:first_name], params[:last_name], params[:email], params[:note])
-   # redirects you back to /contacts page
-    redirect to ("/contacts")
-  end
-
-
- # Viewing Specific Contact----------
-  get "/contacts/:id/view" do
-    @contact = Contact.find(params[:id].to_i)
-    #link to show_contact.erb
-    return erb(:show_contact)
-  end
-
-
- # Editing Contact----------
-  get "/contacts/:id/edit" do
-    @contact = Contact.find(params[:id].to_i)
-    if @contact
- @@ -57,7 +54,22 @@
-    end
-  end
-
- # Editing Contact Page Input--------
- put "/contacts/:id" do
-   @contact = Contact.find(params[:id].to_i)
-   if @contact.update({
-     first_name: params[:first_name],
-     last_name:  params[:last_name],
-     email:      params[:email],
-     note:       params[:note],
-     })
-     redirect to("/contacts")
-   else
-     raise Sinatra::NotFound
-   end
+ get "/contacts/new" do
+   #links to new_contact.erb
+   return erb(:new_contact)
  end
 
- # Deleting Contact----------
+
+ post "/contacts" do
+  contact = Contact.create(
+    first_name: params[:first_name],
+    last_name: params[:last_name],
+    email: params[:email],
+    note: params[:note]
+  )
+   #creates new contact from user input
+  Contact.create(params[:first_name], params[:last_name], params[:email], params[:note])
+    # Contact.create(params[:first_name], params[:last_name], params[:email], params[:note])
+   # redirects you back to /contacts page
+   redirect to ("/contacts")
+ end
+
+
+get "/contacts/:id/view" do
+  @contact = Contact.find(params[:id].to_i)
+  return erb(:show_contact)
+end
+
+
+get "/contacts/:id/edit" do
+  @contact = Contact.find(params[:id].to_i)
+    if @contact
+    erb(:edit_contact)
+  else
+    raise Sinatra::NotFound
+  end
+end
+
+
+get "/contacts/:id/delete" do
+  contact = Contact.find(params[:id].to_i)
+  if contact
+    contact.delete
+  else
+    raise Sinatra::NotFound
+  end
+  redirect to ("/contacts")
+end
+
+
+ after do
+   ActiveRecord::Base.connection.close
+ end
