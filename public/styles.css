@@ -1,0 +1,114 @@
+body {
+   margin: 0;
+  height: 100%;
+ }
+
+ /* contacts.erb---------------*/
+ .title_contact {
+   color: white;
+   background-color: #404040;
+   font-family: sans-serif;
+   height: 60px;
+   width: auto;
+   text-align: center;
+   margin: 0;
+   line-height: 60px;
+ }
+
+ .links {
+   margin: 0;
+   padding: 0;
+ }
+
+ .top_links {
+   background-color: #CCCCCC;
+   font-family: sans-serif;
+   text-align: center;
+   display: block;
+   font-weight: bold;
+   text-decoration: none;
+   color: white;
+   height: 30px;
+   line-height: 30px;
+   margin: 0;
+   border-bottom: 2px white solid;
+   padding-left: 0;
+ }
+
+ .number_contact {
+   background-color: tomato;
+   color: black;
+   height: 40px;
+   font-family: sans-serif;
+   text-align: left;
+   margin: 15px 16px;
+   line-height: 40px;
+   padding-left: 10px;
+ }
+
+ span.contact_count {
+   font-weight: bold;
+   border-bottom: 2px solid cyan;
+   color: black;
+ }
+
+ .contact_list {
+   list-style: none;
+   font-family: sans-serif;
+   color: black;
+   margin: 0 16px;
+   padding: 0;
+   /*line-height: 50px;*/
+   font-weight: bold;
+ }
+
+ .list_of_c p{
+   /*height: 70px;*/
+   margin: 0;
+ }
+
+ .list_of_c {
+   padding: 10px;
+   margin-bottom: 10px;
+   background: cyan;
+ }
+
+.edit_delete {
+.view_edit_delete {
+   font-weight: lighter;
+   color: blue;
+   font-size: 13px;
+ }
+
+ .bar {
+   font-size: 13px;
+   font-weight: lighter;
+ }
+
+ p.footer {
+   background-color: black;
+   color: white;
+   font-weight: lighter;
+   font-family: sans-serif;
+   text-align: center;
+   margin: 0;
+   height: 40px;
+   line-height: 40px;
+   position: sticky;;
+   bottom: 0;
+   width: 100%
+ }
+ /* new_contacts.erb-------------*/
+ h1 {
+   text-align: center;
+   font-family: sans-serif;
+ }
+
+ .input_form {
+   background-color: lightblue;
+   text-align: center;
+ }
+
+ ul {
+   list-style: none;
+}
