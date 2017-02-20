@@ -42,12 +42,12 @@ end
   post "/contacts" do
     contact = Contact.create(
       first_name: params[:first_name],
-     last_name: params[:last_name],
-     email: params[:email],
-     note: params[:note]
-     last_name:  params[:last_name],
-     email:      params[:email],
-     note:       params[:note]
+      last_name:  params[:last_name],
+      email:      params[:email],
+      note:       params[:note]
+      last_name:  params[:last_name],
+      email:      params[:email],
+      note:       params[:note]
     )
    #creates new contact from user input
    # Contact.create(params[:first_name], params[:last_name], params[:email], params[:note])
