@@ -11,8 +11,7 @@ end
 
 # Home Page---------
  get "/" do
-   @crm_app_name = "Stephen's CRM"
-   return erb(:index)
+  erb :index
  end
 
 
@@ -80,4 +79,3 @@ end
  end
 
  # Deleting Contact----------
-  
