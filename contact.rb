@@ -124,6 +124,11 @@ Contact.auto_upgrade!
     "#{@email}"
   end
 
+  after do
+    ActiveRecord::Base.connection.close
+  end
+end
+
   # This method should delete the contact
   # HINT: Check the Array class docs for built-in methods that might be useful here
   # def delete
