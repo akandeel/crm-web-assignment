@@ -39,11 +39,11 @@ get "/" do
     email: params[:email],
     note: params[:note]
   )
+  redirect to ("/contacts")
    #creates new contact from user input
   Contact.create(params[:first_name], params[:last_name], params[:email], params[:note])
     # Contact.create(params[:first_name], params[:last_name], params[:email], params[:note])
    # redirects you back to /contacts page
-   redirect to ("/contacts")
  end
  get '/contacts/:id' do
    @contact = Contact.find(params[:id].to_i)
