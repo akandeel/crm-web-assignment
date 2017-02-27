@@ -35,20 +35,20 @@ end
 
 Contact.auto_upgrade!
 
-  attr_reader :id
-  attr_accessor :first_name, :last_name, :email, :note
+  # attr_reader :id
+  # attr_accessor :first_name, :last_name, :email, :note
 
-  @@contacts = []
-  @@new_id = 1
-
-  # This method should initialize the contact's attributes
-  def initialize(first_name, last_name, email, note)
-    @first_name = first_name
-    @last_name = last_name
-    @email = email
-     note = note
-    @id = @@new_id
-    @@new_id += 1
+  # @@contacts = []
+  # @@new_id = 1
+  # 
+  # # This method should initialize the contact's attributes
+  # def initialize(first_name, last_name, email, note)
+  #   @first_name = first_name
+  #   @last_name = last_name
+  #   @email = email
+  #    note = note
+  #   @id = @@new_id
+  #   @@new_id += 1
   end
 
   # This method should call the initializer,
