@@ -31,7 +31,13 @@ class Contact < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
-end
+  def setup
+    @contact = Contact.create(
+      first_name: 'Grace',
+      last_name:  'Hopper',
+      email:      'grace@hopper.com',
+      note:       'computer scientist')
+  end
 
 Contact.auto_upgrade!
 
@@ -40,7 +46,7 @@ Contact.auto_upgrade!
 
   # @@contacts = []
   # @@new_id = 1
-  # 
+  #
   # # This method should initialize the contact's attributes
   # def initialize(first_name, last_name, email, note)
   #   @first_name = first_name
